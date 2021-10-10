@@ -91,7 +91,7 @@ const newGameSuccess = function (responseData) {
   store.user = responseData.user
   console.log('store is', store)
 
-  $('#bro-display').text("Let's Start Bro!")
+  $('#bro-display').text("Let's Start Bro! X, you Start!")
 
   $('#bro-display').removeClass()
   $('#bro-display').addClass('text-success')
