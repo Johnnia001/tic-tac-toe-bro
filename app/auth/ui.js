@@ -72,8 +72,8 @@ const signOutSuccess = function (responseData) {
   $('#bro-display').addClass('text-success')
   $('form').trigger('reset')
   // show before sign in and hide after sign in
-  $('#before-sign-in').show()
-  $('#after-sign-in').hide()
+  $('#before-sign-in').hide()
+  $('#after-sign-in').show()
 
   console.log('responseData is', responseData)
 }
@@ -86,6 +86,21 @@ const signOutFailure = function (error) {
   $('#error-message').addClass('text-danger')
   console.error('error is', error)
 }
+
+const newGameSuccess = function (responseData) {
+  store.user = responseData.user
+  console.log('store is', store)
+
+  $('#bro-display').text("Let's Start Bro!")
+
+  $('#bro-display').removeClass()
+  $('#bro-display').addClass('text-success')
+  $('form').trigger('reset')
+  $('.game-board').show()
+
+  console.log('responseData is', responseData)
+}
+
 // DON'T FORGET TO EXPORT
 module.exports = {
   signUpSuccess,
@@ -93,5 +108,6 @@ module.exports = {
   signInSuccess,
   signInFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  newGameSuccess
 }
