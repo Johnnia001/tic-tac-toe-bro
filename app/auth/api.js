@@ -22,6 +22,7 @@ const signIn = function (formData) {
 }
 // sign out
 const signOut = function () {
+  console.log(store.user)
   return $.ajax({
     url: `${config.apiUrl}/sign-out`,
     method: 'DELETE',
@@ -33,15 +34,17 @@ const signOut = function () {
 }
 
 // New Game button
-const newGame = function () {
+const newGame = function (formData) {
   return $.ajax({
-    url: `${config.apiUrl}/games`,
     method: 'POST',
+    url: `${config.apiUrl}/games`,
+    data: formData,
     headers: {
       Authorization: 'Bearer ' + store.user.token
     }
   })
 }
+
 // DON'T FORGET TO EXPORT
 // exports
 module.exports = {

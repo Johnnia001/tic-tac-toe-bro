@@ -1,6 +1,3 @@
-# EMAIL=pp@neopets.com PASSWORD=111 sh curl-scripts/auth/sign-up.sh
-
-
 API="https://tic-tac-toe-api-development.herokuapp.com"
 URL_PATH="/games"
 

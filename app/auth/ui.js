@@ -47,6 +47,7 @@ const signInSuccess = function (responseData) {
   $('#before-sign-in').hide()
   // show after sign in section
   $('#after-sign-in').show()
+  $('#new-game-button').show()
   console.log('responseData is', responseData)
 }
 
@@ -72,8 +73,10 @@ const signOutSuccess = function (responseData) {
   $('#bro-display').addClass('text-success')
   $('form').trigger('reset')
   // show before sign in and hide after sign in
-  $('#before-sign-in').hide()
-  $('#after-sign-in').show()
+  $('#before-sign-in').show()
+  $('#after-sign-in').hide()
+  $('#new-game-button').hide()
+  $('.game-board').hide()
 
   console.log('responseData is', responseData)
 }
@@ -86,21 +89,39 @@ const signOutFailure = function (error) {
   $('#error-message').addClass('text-danger')
   console.error('error is', error)
 }
-
+// newGame
 const newGameSuccess = function (responseData) {
-  store.user = responseData.user
+  store.game = responseData.game
   console.log('store is', store)
 
-  $('#bro-display').text("Let's Start Bro! X, you Start!")
+  $('#bro-display').text("Let's Start Bro!")
 
   $('#bro-display').removeClass()
   $('#bro-display').addClass('text-success')
-  $('form').trigger('reset')
+  $('button').trigger('reset')
   $('.game-board').show()
 
   console.log('responseData is', responseData)
 }
 
+const newGameFailure = function (error) {
+  $('#error-message').text(
+    'I guess this is Jumanji now, or this button does not work.'
+  )
+  // make text red
+  $('#error-message').removeClass()
+  $('#error-message').addClass('text-danger')
+  console.error('error is', error)
+}
+
+const pickBox = function (player) {
+  if (player === 'X') {
+    $(event.target)
+    $(event.target).text('X')
+  } else {
+    $(event.target).text('0')
+  }
+}
 // DON'T FORGET TO EXPORT
 module.exports = {
   signUpSuccess,
@@ -109,5 +130,7 @@ module.exports = {
   signInFailure,
   signOutSuccess,
   signOutFailure,
-  newGameSuccess
+  newGameSuccess,
+  newGameFailure,
+  pickBox
 }

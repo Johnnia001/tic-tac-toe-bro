@@ -13,5 +13,8 @@ $(() => {
   // sign out
   $('#sign-out').on('submit', authEvents.onSignOut)
   $('#sign-out').on('click', authEvents.onSignOut)
+  // new game
   $('#new-game').on('click', authEvents.onNewGame)
+  // playing game
+  $('')
 })
