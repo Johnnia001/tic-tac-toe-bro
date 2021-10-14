@@ -102,6 +102,8 @@ const newGameSuccess = function (responseData) {
   $('.game-board').show()
 
   console.log('responseData is', responseData)
+  store.currentPlayer = 'X'
+  store.board = ['', '', '', '', '', '', '', '', '']
 }
 
 const newGameFailure = function (error) {
@@ -114,14 +116,14 @@ const newGameFailure = function (error) {
   console.error('error is', error)
 }
 
-const pickBox = function (player) {
+/* const pickBox = function (player, event) {
   if (player === 'X') {
-    $(event.target)
+    console.log($(event.target))
     $(event.target).text('X')
   } else {
-    $(event.target).text('0')
+    $(event.target).text('O')
   }
-}
+} */
 // DON'T FORGET TO EXPORT
 module.exports = {
   signUpSuccess,
@@ -131,6 +133,6 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   newGameSuccess,
-  newGameFailure,
-  pickBox
+  newGameFailure
+
 }

@@ -1,1 +1,46 @@
 @import '~bootstrap/scss/bootstrap';
+.container{
+ height: 100vh;
+
+}
+.board{
+  height: 400px;
+  background-repeat: no-repeat;
+  width: 400px;
+  margin:auto;
+  background: transparent;
+
+
+}
+.box{
+border-right: 3px solid black;
+border-bottom: 3px solid black;
+background: transparent;
+
+// selecting the 3 right boxes based on their position (every 3rd)
+&:nth-child(3n){
+border-right: 0;
+}
+// to select the last 3 elements
+&:nth-last-child(-1n + 3){
+  border-bottom: 0;
+}
+
+//set min height for each box
+//min-height: calc(100/3)
+//center text in board for x and os
+display:flex;
+//set content along the main axis
+justify-content: center;
+
+align-items: center;
+&:hover{
+  background-color: hotpink
+}
+user-select: none;
+
+}
+.game-board{
+  background-image: url(https://i.imgur.com/plr4DLd.gif);
+background-size: cover;
+}

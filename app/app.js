@@ -16,5 +16,5 @@ $(() => {
   // new game
   $('#new-game').on('click', authEvents.onNewGame)
   // playing game
-  $('')
+  $('.box').on('click', authEvents.pickBox)
 })

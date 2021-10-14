@@ -41,26 +41,25 @@ const onNewGame = function (event) {
   api.newGame().then(ui.newGameSuccess).catch(ui.newGameFailure)
 }
 
-// start as x
-let player = 'X'
-const gameStatus = false
+const gameStatus = true
 const gameCell = ['', '', '', '', '', '', '', '', '']
+// start as x
+let player = 'O'
 const pickBox = function (event) {
   const xOrO = player
   // gameStatus is false so will switch back and forth
   if (gameStatus) {
-    const box = event.target
+    const box = $(event.target)
     // looking at array and seeing if its an empty
-    if (gameCell[box.id] === '') {
+    if (gameCell[event.target.id] === '') {
       //
-      gameCell[box.id] = xOrO
-      // ui marks it in the box
-      ui.pickBox(xOrO)
+      gameCell[event.target.id] = xOrO
       if (xOrO === 'X') {
         player = '0'
       } else {
         player = 'X'
       }
+      box.text(player)
     }
   }
 }

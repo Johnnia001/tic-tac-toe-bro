@@ -1,11 +1,14 @@
-# VARIABLE=VALUE sh curl-scripts/auth/sign-in.sh
+# EMAIL= PASSWORD= sh curl-scripts/development/sign-in.sh
 
-API="https://tic-tac-toe-api-development.herokuapp.com"
-URL_PATH="/games"
-
-curl "${API}${URL_PATH}/${ID}" \
+curl "https://tic-tac-toe-api-development.herokuapp.com/sign-in" \
   --include \
-  --request GET \
-  --header "Authorization: Bearer ${TOKEN}"
+  --request POST \
+  --header "Content-Type: application/json" \
+  --data '{
+      "credentials": {
+        "email": "'"${EMAIL}"'",
+        "password": "'"${PASSWORD}"'"
+      }
+    }'
 
 echo

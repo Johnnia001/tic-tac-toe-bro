@@ -45,11 +45,33 @@ const newGame = function (formData) {
   })
 }
 
+// update game
+
+const updateGame = function (index, value, over) {
+  return $.ajax({
+    method: 'PATCH',
+    url: `${config.apiUrl}/games/${store.game._id}`,
+    data: {
+      game: {
+        cell: {
+          index: index,
+          value: value
+        },
+        over: over
+      }
+    },
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 // DON'T FORGET TO EXPORT
 // exports
 module.exports = {
   signUp,
   signIn,
   signOut,
-  newGame
+  newGame,
+  updateGame
 }
