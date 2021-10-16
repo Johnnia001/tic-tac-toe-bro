@@ -62,6 +62,7 @@ const pickBox = function (event) {
 const checkWin = function (xOrO) {
   // horizontal
   if (gameCell[0] === xOrO && gameCell[1] === xOrO && gameCell[2] === xOrO) {
+    $('#bro-display').text(`${xOrO}, you win!`)
     console.log(`${xOrO} won`)
     return true
   } else if (
@@ -69,6 +70,7 @@ const checkWin = function (xOrO) {
     gameCell[4] === xOrO &&
     gameCell[5] === xOrO
   ) {
+    $('#bro-display').text(`${xOrO}, you win!`)
     console.log(`${xOrO} won`)
     return true
   } else if (
@@ -76,6 +78,7 @@ const checkWin = function (xOrO) {
     gameCell[7] === xOrO &&
     gameCell[8] === xOrO
   ) {
+    $('#bro-display').text(`${xOrO}, you win!`)
     console.log(`${xOrO} won`)
     return true
     // vertical
@@ -84,6 +87,7 @@ const checkWin = function (xOrO) {
     gameCell[3] === xOrO &&
     gameCell[6] === xOrO
   ) {
+    $('#bro-display').text(`${xOrO}, you win!`)
     console.log(`${xOrO} won`)
     return true
   } else if (
@@ -91,6 +95,7 @@ const checkWin = function (xOrO) {
     gameCell[4] === xOrO &&
     gameCell[7] === xOrO
   ) {
+    $('#bro-display').text(`${xOrO}, you win!`)
     console.log(`${xOrO} won`)
     return true
   } else if (
@@ -98,6 +103,7 @@ const checkWin = function (xOrO) {
     gameCell[5] === xOrO &&
     gameCell[8] === xOrO
   ) {
+    $('#bro-display').text(`${xOrO}, you win!`)
     console.log(`${xOrO} won`)
     return true
     // diagonal
@@ -106,6 +112,7 @@ const checkWin = function (xOrO) {
     gameCell[4] === xOrO &&
     gameCell[8] === xOrO
   ) {
+    $('#bro-display').text(`${xOrO}, you win!`)
     console.log(`${xOrO} won`)
     return true
   } else if (
@@ -113,15 +120,29 @@ const checkWin = function (xOrO) {
     gameCell[4] === xOrO &&
     gameCell[6] === xOrO
   ) {
+    $('#bro-display').text(`${xOrO}, you win!`)
     console.log(`${xOrO} won`)
     return true
+    // TIE/CAT
+  } else if (
+    gameCell[0] !== '' &&
+    gameCell[1] !== '' &&
+    gameCell[2] !== '' &&
+    gameCell[3] !== '' &&
+    gameCell[4] !== '' &&
+    gameCell[5] !== '' &&
+    gameCell[6] !== '' &&
+    gameCell[7] !== '' &&
+    gameCell[8] !== '') {
+    $('#bro-display').text('IT\'S A CAT!')
+    console.log("It's a Tie!")
   }
   return false
 }
 
 // finish game
-const finishGame = function (xOrO) {
-  $('#bro-display').text(`${xOrO}, you win!`)
+const finishGame = function () {
+  // $('#bro-display').text(`${xOrO}, you win!`)
   // make game stop by changing value to false so it isn't able to continue.
   gameStatus = false
 }
