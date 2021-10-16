@@ -106,6 +106,8 @@ const newGameSuccess = function (responseData) {
   // Save players moves
   store.currentPlayer = 'X'
   store.board = ['', '', '', '', '', '', '', '', '']
+  // clears board game
+  $('.box').text('')
 }
 
 const newGameFailure = function (error) {
@@ -117,13 +119,6 @@ const newGameFailure = function (error) {
   $('#error-message').addClass('text-danger')
   console.error('error is', error)
 }
-
-/* startNewGame = function(){
-  for(i=0, i>=8, i++)
-  if (gameCell !== ''){
-    gameCell = ''
-  }
-} */
 
 // DON'T FORGET TO EXPORT
 module.exports = {

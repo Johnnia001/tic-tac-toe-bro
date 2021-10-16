@@ -162,5 +162,4 @@ module.exports = {
   onNewGame,
   pickBox,
   checkWin
-  // gameCell
 }
