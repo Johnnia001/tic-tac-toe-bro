@@ -2,6 +2,7 @@
 // DON'T FORGET TO EXPORT
 // store object to share with different files
 const store = require('../store')
+// const events = require('./events')
 // success and failure functions so it can display on site if it messes up or not
 
 // sign up success
@@ -102,13 +103,14 @@ const newGameSuccess = function (responseData) {
   $('.game-board').show()
 
   console.log('responseData is', responseData)
+  // Save players moves
   store.currentPlayer = 'X'
   store.board = ['', '', '', '', '', '', '', '', '']
 }
 
 const newGameFailure = function (error) {
   $('#error-message').text(
-    'I guess this is Jumanji now, or this button does not work.'
+    'I guess this is Jumanji now, or this button does\'nt work.'
   )
   // make text red
   $('#error-message').removeClass()
@@ -116,14 +118,13 @@ const newGameFailure = function (error) {
   console.error('error is', error)
 }
 
-/* const pickBox = function (player, event) {
-  if (player === 'X') {
-    console.log($(event.target))
-    $(event.target).text('X')
-  } else {
-    $(event.target).text('O')
+/* startNewGame = function(){
+  for(i=0, i>=8, i++)
+  if (gameCell !== ''){
+    gameCell = ''
   }
 } */
+
 // DON'T FORGET TO EXPORT
 module.exports = {
   signUpSuccess,
@@ -134,5 +135,5 @@ module.exports = {
   signOutFailure,
   newGameSuccess,
   newGameFailure
-
+  // startNewGame
 }

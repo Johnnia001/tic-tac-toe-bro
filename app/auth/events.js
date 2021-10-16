@@ -12,10 +12,7 @@ const onSignUp = function (event) {
   const form = event.target
   const formData = getFormFields(form)
 
-  api
-    .signUp(formData)
-    .then(ui.signUpSuccess)
-    .catch(ui.signUpFailure)
+  api.signUp(formData).then(ui.signUpSuccess).catch(ui.signUpFailure)
 }
 // sign in
 
@@ -25,49 +22,124 @@ const onSignIn = function (event) {
   const form = event.target
   const formData = getFormFields(form)
 
-  api
-    .signIn(formData)
-    .then(ui.signInSuccess)
-    .catch(ui.signInFailure)
+  api.signIn(formData).then(ui.signInSuccess).catch(ui.signInFailure)
 }
 // sign out
 const onSignOut = function () {
   api.signOut().then(ui.signOutSuccess).catch(ui.signOutFailure)
 }
-
-// New game
-const onNewGame = function (event) {
-  event.preventDefault()
-  api.newGame().then(ui.newGameSuccess).catch(ui.newGameFailure)
-}
-
-const gameStatus = true
+// Game
+let gameStatus = true
 const gameCell = ['', '', '', '', '', '', '', '', '']
 // start as x
-let player = 'O'
+let player = 'X'
+
+// Playing Game
 const pickBox = function (event) {
   const xOrO = player
-  // gameStatus is false so will switch back and forth
+  // gameStatus is true so will switch back and forth
   if (gameStatus) {
     const box = $(event.target)
     // looking at array and seeing if its an empty
     if (gameCell[event.target.id] === '') {
-      //
+      // replace with x or o
       gameCell[event.target.id] = xOrO
       if (xOrO === 'X') {
-        player = '0'
+        player = 'O'
       } else {
         player = 'X'
       }
-      box.text(player)
+      box.text(xOrO)
     }
   }
+  // call function so that with every click it checks for winner and finishes game.
+  if (checkWin(xOrO)) {
+    finishGame(xOrO)
+  }
 }
+
+// checking for winner
+const checkWin = function (xOrO) {
+  // horizontal
+  if (gameCell[0] === xOrO && gameCell[1] === xOrO && gameCell[2] === xOrO) {
+    console.log(`${xOrO} won`)
+    return true
+  } else if (
+    gameCell[3] === xOrO &&
+    gameCell[4] === xOrO &&
+    gameCell[5] === xOrO
+  ) {
+    console.log(`${xOrO} won`)
+    return true
+  } else if (
+    gameCell[6] === xOrO &&
+    gameCell[7] === xOrO &&
+    gameCell[8] === xOrO
+  ) {
+    console.log(`${xOrO} won`)
+    return true
+    // vertical
+  } else if (
+    gameCell[0] === xOrO &&
+    gameCell[3] === xOrO &&
+    gameCell[6] === xOrO
+  ) {
+    console.log(`${xOrO} won`)
+    return true
+  } else if (
+    gameCell[1] === xOrO &&
+    gameCell[4] === xOrO &&
+    gameCell[7] === xOrO
+  ) {
+    console.log(`${xOrO} won`)
+    return true
+  } else if (
+    gameCell[2] === xOrO &&
+    gameCell[5] === xOrO &&
+    gameCell[8] === xOrO
+  ) {
+    console.log(`${xOrO} won`)
+    return true
+    // diagonal
+  } else if (
+    gameCell[0] === xOrO &&
+    gameCell[4] === xOrO &&
+    gameCell[8] === xOrO
+  ) {
+    console.log(`${xOrO} won`)
+    return true
+  } else if (
+    gameCell[2] === xOrO &&
+    gameCell[4] === xOrO &&
+    gameCell[6] === xOrO
+  ) {
+    console.log(`${xOrO} won`)
+    return true
+  }
+  return false
+}
+
+// finish game
+const finishGame = function (xOrO) {
+  $('#bro-display').text(`${xOrO}, you win!`)
+  // make game stop by changing value to false so it isn't able to continue.
+  gameStatus = false
+}
+
+// New game
+const onNewGame = function (event) {
+  event.preventDefault()
+
+  api.newGame().then(ui.newGameSuccess).catch(ui.newGameFailure)
+}
+
 // DON'T FORGET TO EXPORT
 module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
   onNewGame,
-  pickBox
+  pickBox,
+  checkWin
+  // gameCell
 }
