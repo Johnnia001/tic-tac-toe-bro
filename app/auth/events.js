@@ -30,7 +30,7 @@ const onSignOut = function () {
 }
 // Game
 let gameStatus = true
-const gameCell = ['', '', '', '', '', '', '', '', '']
+let gameCell = ['', '', '', '', '', '', '', '', '']
 // start as x
 let player = 'X'
 
@@ -49,12 +49,13 @@ const pickBox = function (event) {
       } else {
         player = 'X'
       }
-      box.text(xOrO)
+      // box.text(xOrO)
+      box.addClass(xOrO)
     }
-  }
-  // call function so that with every click it checks for winner and finishes game.
-  if (checkWin(xOrO)) {
-    finishGame(xOrO)
+    // call function so that with every click it checks for winner and finishes game.
+    if (checkWin(xOrO)) {
+      finishGame(xOrO)
+    }
   }
 }
 
@@ -150,6 +151,9 @@ const finishGame = function () {
 // New game
 const onNewGame = function (event) {
   event.preventDefault()
+  // reset game board
+  gameStatus = true
+  gameCell = ['', '', '', '', '', '', '', '', '']
 
   api.newGame().then(ui.newGameSuccess).catch(ui.newGameFailure)
 }

@@ -3,18 +3,19 @@
  height: 100vh;
 
 }
+
 .board{
+  display: flex;
   height: 400px;
   background-repeat: no-repeat;
   width: 400px;
   margin:auto;
   background: transparent;
 
-
 }
 .box{
-border-right: 3px solid black;
-border-bottom: 3px solid black;
+border-right: 4px solid turquoise;
+border-bottom: 4px solid turquoise;
 background: transparent;
 
 // selecting the 3 right boxes based on their position (every 3rd)
@@ -34,6 +35,7 @@ display:flex;
 justify-content: center;
 
 align-items: center;
+// display pink when mouse hovers over
 &:hover{
   background-color: hotpink
 }
@@ -41,6 +43,26 @@ user-select: none;
 
 }
 .game-board{
+  display:flex;
+  max-width: 100%;
+  max-height:100%;
   background-image: url(https://i.imgur.com/plr4DLd.gif);
-background-size: cover;
+  background-size:100%;
+  background-repeat: no-repeat;
+}
+body{
+  background-color: rgb(37, 38, 38);
+}
+
+.X{
+  display:flex;
+ background-image: url(https://i.imgur.com/OgGMNuA.gif);
+ background-size: 100%;
+}
+
+.O{
+   display:flex;
+ background-image: url(https://i.imgur.com/Mfkj4Gq.gif);
+ background-size: 100%;
+
 }

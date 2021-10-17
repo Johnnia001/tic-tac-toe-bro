@@ -101,13 +101,14 @@ const newGameSuccess = function (responseData) {
   $('#bro-display').addClass('text-success')
   $('button').trigger('reset')
   $('.game-board').show()
+  // remove character images
+  $('.box').removeClass('X')
+  $('.box').removeClass('O')
 
   console.log('responseData is', responseData)
   // Save players moves
   store.currentPlayer = 'X'
   store.board = ['', '', '', '', '', '', '', '', '']
-  // clears board game
-  $('.box').text('')
 }
 
 const newGameFailure = function (error) {
@@ -130,5 +131,4 @@ module.exports = {
   signOutFailure,
   newGameSuccess,
   newGameFailure
-  // startNewGame
 }
