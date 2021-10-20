@@ -1,0 +1,91 @@
+@import '~bootstrap/scss/bootstrap';
+.container{
+ height: 70vh;
+
+}
+h1{
+  display: flex;
+  color: hotpink;
+  font-size: 400%;
+  font-family: monospace;
+  justify-content: center;
+}
+.board{
+  display: flex;
+  height: 400px;
+  background-repeat: no-repeat;
+  width: 400px;
+  margin:auto;
+  background: transparent;
+
+}
+.box{
+border-right: 4px solid turquoise;
+border-bottom: 4px solid turquoise;
+background: transparent;
+
+
+// selecting the 3 right boxes based on their position (every 3rd)
+&:nth-child(3n){
+border-right: 0;
+}
+// to select the last 3 elements
+&:nth-last-child(-1n + 3){
+  border-bottom: 0;
+}
+//set min height for each box
+//min-height: calc(100/3)
+//center text in board for x and os
+display:flex;
+//set content along the main axis
+justify-content: center;
+
+align-items: center;
+// display pink when mouse hovers over
+&:hover{
+  background-color: hotpink
+}
+user-select: none;
+
+}
+.game-board{
+  display:flex;
+  max-width: 100%;
+  max-height:90%;
+  min-height: 400px;
+  background-image: url(https://i.imgur.com/plr4DLd.gif);
+  background-size:100%;
+  background-repeat: no-repeat;
+
+}
+
+body{
+  background-color: rgb(37, 38, 38);
+}
+
+.X{
+  display:flex;
+ background-image: url(https://i.imgur.com/OgGMNuA.gif);
+ background-size: 100%;
+}
+
+.O{
+   display:flex;
+ background-image: url(https://i.imgur.com/Mfkj4Gq.gif);
+ background-size: 100%;
+}
+.cat{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(https://i.imgur.com/8jwbIkn.gif);
+  background-size: 75%;
+  background-repeat: no-repeat;
+}
+#bro-display {
+  display: flex;
+  justify-content: center;
+  font-size: xx-large;
+  font-family: monospace;
+
+}
