@@ -9,7 +9,7 @@ const store = require('../store')
 
 const signUpSuccess = function (responseData) {
   // tell the user it was successful
-  $('#bro-display').text('Signed up successfully, Bro!')
+  $('#bro-display').text('Signed up successfully, High-Five!')
   $('#bro-display').removeClass()
   $('#bro-display').addClass('text-success')
   // reset all of the forms
@@ -20,7 +20,7 @@ const signUpSuccess = function (responseData) {
 
 const signUpFailure = function (error) {
   // tell the user it was failure
-  $('#error-message').text('Sign up failed, Bro...')
+  $('#error-message').text('Sign up failed, Bro... :(')
   // remove existing classes, then make it red with bootstrap
   $('#error-message').removeClass()
   $('#error-message').addClass('text-danger')
@@ -66,10 +66,10 @@ const signInFailure = function (error) {
 
 const signOutSuccess = function (responseData) {
   // tell user
-  $('#bro-display').text('Signed Out successfully, Bro!')
+  $('#bro-display').text('Signed Out successfully... I\'ll miss you...')
   // make text green
   $('#bro-display').removeClass()
-  $('#bro-display').addClass('text-success')
+  $('#bro-display').addClass('text-info')
   $('form').trigger('reset')
   // show before sign in and hide after sign in
   $('#before-sign-in').show()
@@ -93,7 +93,7 @@ const newGameSuccess = function (responseData) {
   store.game = responseData.game
   console.log('store is', store)
 
-  $('#bro-display').text("Let's Start Bro!")
+  $('#bro-display').text("Let's Start Bro! Get 3 territories in a row to win! X you first, you funky little deer~")
 
   $('#bro-display').removeClass()
   $('#bro-display').addClass('text-info')
