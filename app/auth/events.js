@@ -63,7 +63,7 @@ const pickBox = function (event) {
 const checkWin = function (xOrO) {
   // horizontal
   if (gameCell[0] === xOrO && gameCell[1] === xOrO && gameCell[2] === xOrO) {
-    $('#bro-display').text(`${xOrO}, you win!`)
+    $('#bro-display').text(`${xOrO}, you win! Now buy me a pizza.`)
     console.log(`${xOrO} won`)
     return true
   } else if (
@@ -71,7 +71,7 @@ const checkWin = function (xOrO) {
     gameCell[4] === xOrO &&
     gameCell[5] === xOrO
   ) {
-    $('#bro-display').text(`${xOrO}, you win!`)
+    $('#bro-display').text(`${xOrO}, you win! Congrats! what's next? World domination?`)
     console.log(`${xOrO} won`)
     return true
   } else if (
@@ -79,7 +79,7 @@ const checkWin = function (xOrO) {
     gameCell[7] === xOrO &&
     gameCell[8] === xOrO
   ) {
-    $('#bro-display').text(`${xOrO}, you win!`)
+    $('#bro-display').text(`${xOrO}, you win! "Sorry Loser!"`)
     console.log(`${xOrO} won`)
     return true
     // vertical
@@ -88,7 +88,7 @@ const checkWin = function (xOrO) {
     gameCell[3] === xOrO &&
     gameCell[6] === xOrO
   ) {
-    $('#bro-display').text(`${xOrO}, you win!`)
+    $('#bro-display').text(`${xOrO}, you win! Let's play AGAIN! AGAIN!`)
     console.log(`${xOrO} won`)
     return true
   } else if (
@@ -96,7 +96,7 @@ const checkWin = function (xOrO) {
     gameCell[4] === xOrO &&
     gameCell[7] === xOrO
   ) {
-    $('#bro-display').text(`${xOrO}, you win!`)
+    $('#bro-display').text(`${xOrO}, you win! So... much.. POWER! `)
     console.log(`${xOrO} won`)
     return true
   } else if (
@@ -104,7 +104,7 @@ const checkWin = function (xOrO) {
     gameCell[5] === xOrO &&
     gameCell[8] === xOrO
   ) {
-    $('#bro-display').text(`${xOrO}, you win!`)
+    $('#bro-display').text(`${xOrO}, you win! YEE-HAW!`)
     console.log(`${xOrO} won`)
     return true
     // diagonal
@@ -113,7 +113,7 @@ const checkWin = function (xOrO) {
     gameCell[4] === xOrO &&
     gameCell[8] === xOrO
   ) {
-    $('#bro-display').text(`${xOrO}, you win!`)
+    $('#bro-display').text(`${xOrO}, you win! Now back to the reality of the streets...`)
     console.log(`${xOrO} won`)
     return true
   } else if (
@@ -121,7 +121,7 @@ const checkWin = function (xOrO) {
     gameCell[4] === xOrO &&
     gameCell[6] === xOrO
   ) {
-    $('#bro-display').text(`${xOrO}, you win!`)
+    $('#bro-display').text(`${xOrO}, you win! NO MERCY.`)
     console.log(`${xOrO} won`)
     return true
     // TIE/CAT
@@ -135,8 +135,10 @@ const checkWin = function (xOrO) {
     gameCell[6] !== '' &&
     gameCell[7] !== '' &&
     gameCell[8] !== '') {
-    $('#bro-display').text('IT\'S A CAT!')
+    $('#bro-display').text('IT\'S A CAT! THE WAR IS OVER!')
     console.log("It's a Tie!")
+    $('.container').addClass('cat')
+    $('.box').hide()
   }
   return false
 }

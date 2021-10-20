@@ -37,10 +37,8 @@ const signInSuccess = function (responseData) {
 
   $('#bro-display').text('Signed in successfully Bro!')
 
-  // make text green. maybe change later??
-
   $('#bro-display').removeClass()
-  $('#bro-display').addClass('text-success')
+  $('#bro-display').addClass('text-info')
   // clear forms
   $('form').trigger('reset')
 
@@ -98,12 +96,14 @@ const newGameSuccess = function (responseData) {
   $('#bro-display').text("Let's Start Bro!")
 
   $('#bro-display').removeClass()
-  $('#bro-display').addClass('text-success')
+  $('#bro-display').addClass('text-info')
   $('button').trigger('reset')
   $('.game-board').show()
+  $('.box').show()
   // remove character images
   $('.box').removeClass('X')
   $('.box').removeClass('O')
+  $('.container').removeClass('cat')
 
   console.log('responseData is', responseData)
   // Save players moves

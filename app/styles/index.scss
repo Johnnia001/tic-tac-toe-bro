@@ -3,7 +3,13 @@
  height: 100vh;
 
 }
-
+h1{
+  display: flex;
+  color: hotpink;
+  font-size: 400%;
+  font-family: monospace;
+  justify-content: center;
+}
 .board{
   display: flex;
   height: 400px;
@@ -18,6 +24,7 @@ border-right: 4px solid turquoise;
 border-bottom: 4px solid turquoise;
 background: transparent;
 
+
 // selecting the 3 right boxes based on their position (every 3rd)
 &:nth-child(3n){
 border-right: 0;
@@ -26,7 +33,6 @@ border-right: 0;
 &:nth-last-child(-1n + 3){
   border-bottom: 0;
 }
-
 //set min height for each box
 //min-height: calc(100/3)
 //center text in board for x and os
@@ -49,7 +55,9 @@ user-select: none;
   background-image: url(https://i.imgur.com/plr4DLd.gif);
   background-size:100%;
   background-repeat: no-repeat;
+
 }
+
 body{
   background-color: rgb(37, 38, 38);
 }
@@ -64,5 +72,16 @@ body{
    display:flex;
  background-image: url(https://i.imgur.com/Mfkj4Gq.gif);
  background-size: 100%;
+}
+.cat{
+  background-image: url(https://i.imgur.com/8jwbIkn.gif);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+#bro-display {
+  display: flex;
+  justify-content: center;
+  font-size: xx-large;
+  font-family: monospace;
 
 }
